@@ -5,7 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
-  :root {
+  :root,
+  [data-theme="devops"] {
     --background: 222 25% 6%;
     --foreground: 210 40% 96%;
 
@@ -50,6 +51,96 @@
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 220 15% 18%;
     --sidebar-ring: 217 91% 60%;
+  }
+
+  [data-theme="dark-pro"] {
+    --background: 220 20% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 20% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 20% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 200 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 160 100% 45%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 160 100% 45%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 90% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 200 100% 50%;
+
+    --gradient-dev: 200 100% 50%;
+    --gradient-ops: 160 100% 45%;
+
+    --glow-blue: 200 100% 50%;
+    --glow-green: 160 100% 45%;
+
+    --sidebar-background: 220 20% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 200 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 160 100% 45%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 220 15% 15%;
+    --sidebar-ring: 200 100% 50%;
+  }
+
+  [data-theme="light-pro"] {
+    --background: 210 20% 98%;
+    --foreground: 222 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 15%;
+
+    --primary: 217 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 152 60% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 152 60% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 217 70% 50%;
+
+    --gradient-dev: 217 70% 50%;
+    --gradient-ops: 152 60% 35%;
+
+    --glow-blue: 217 70% 50%;
+    --glow-green: 152 60% 35%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 25% 15%;
+    --sidebar-primary: 217 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 152 60% 35%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 15% 88%;
+    --sidebar-ring: 217 70% 50%;
   }
 }
 
@@ -125,4 +216,13 @@
   .section-padding {
     @apply py-20 md:py-28 px-4 md:px-8;
   }
+}
+
+/* Theme transition */
+html {
+  transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+[data-theme] * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
