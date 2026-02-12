@@ -1,25 +1,24 @@
-# ---------- Build Stage ----------
+# ---------- Stage 1: Build ----------
 FROM node:18-alpine AS build
 
 WORKDIR /app
 
-# Copy dependency files first (better caching)
-COPY package.json package-lock.json* ./
+COPY package*.json ./
+
 RUN npm install
 
-# Copy rest of the app
 COPY . .
 
-# Build Vite app
 RUN npm run build
 
-# ---------- Production Stage ----------
+
+# ---------- Stage 2: Production ----------
 FROM nginx:alpine
 
-# Copy built files to nginx
+RUN rm -rf /usr/share/nginx/html/*
+
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose port
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
